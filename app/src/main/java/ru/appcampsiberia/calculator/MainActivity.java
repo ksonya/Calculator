@@ -22,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
     private Button button1;
     private Button button2;
     private Button button3;
+    private Button button4;
+    private Button button5;
+    private Button button6;
+    private Button button7;
+    private Button button8;
+    private Button button9;
+    private Button button0;
+    private Button buttonC;
     private Button buttonAdd;
     private Button buttonMul;
     private Button buttonDone;
@@ -59,6 +67,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        button4 = (Button) findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = a * 10 + 4;
+                render();
+            }
+        });
+
+        button0 = (Button) findViewById(R.id.button0);
+        button0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = a * 10;
+                render();
+            }
+        });
+
+        buttonC = (Button) findViewById(R.id.buttonC);
+        buttonC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = 0;
+                render();
+            }
+        });
+
         buttonAdd = (Button) findViewById(R.id.buttonAdd);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 a = 0;
                 op = 2;
                 render();
+
             }
         });
 
@@ -101,7 +137,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void render() {
-        resultView.setText(Long.toString(a));
+        if (a == 0) {
+            resultView.setText("пусто");
+        } else {
+            resultView.setText(Long.toString(a));
+        }
     }
 
 }
