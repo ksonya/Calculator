@@ -25,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private Button button4;
     private Button button5;
     private Button button6;
-    private Button button7;
-    private Button button8;
-    private Button button9;
     private Button button0;
     private Button buttonC;
     private Button buttonAdd;
