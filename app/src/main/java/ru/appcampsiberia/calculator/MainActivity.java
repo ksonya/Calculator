@@ -25,9 +25,14 @@ public class MainActivity extends AppCompatActivity {
     private Button button4;
     private Button button5;
     private Button button6;
-    private Button button0;
+    private Button button7;
+    private Button button8;
     private Button buttonC;
+    private Button button9;
+    private Button buttonSq;
+    private Button button0;
     private Button buttonAdd;
+    private Button buttonSub;
     private Button buttonMul;
     private Button buttonDone;
     private TextView resultView;
@@ -72,6 +77,49 @@ public class MainActivity extends AppCompatActivity {
                 render();
             }
         });
+        button5 = (Button) findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = a * 10 + 5;
+                render();
+            }
+        });
+
+        button6 = (Button) findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = a * 10 + 6;
+                render();
+            }
+        });
+
+        button7 = (Button) findViewById(R.id.button7);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = a * 10 + 7;
+                render();
+            }
+        });
+        button8 = (Button) findViewById(R.id.button8);
+        button8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = a * 10 + 8;
+                render();
+            }
+        });
+        button9 = (Button) findViewById(R.id.button9);
+        button9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = a * 10 + 9;
+                render();
+            }
+        });
+
 
         button0 = (Button) findViewById(R.id.button0);
         button0.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +150,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonMul = (Button) findViewById(R.id.buttonMul);
+
+        buttonSub= (Button) findViewById(R.id.buttonSub);
+        buttonSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                b = a;
+                a = 0;
+                op = 3;
+                render();
+            }
+        });     buttonMul = (Button) findViewById(R.id.buttonMul);
         buttonMul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +171,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        buttonSq = (Button) findViewById(R.id.buttonSq);
+        buttonSq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a = a * a;
+                render();
+            }
+        });
         buttonDone = (Button) findViewById(R.id.buttonDone);
         buttonDone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +191,10 @@ public class MainActivity extends AppCompatActivity {
                     a = a * b;
                     op = 0;
                 }
+                if (op == 3){
+                    a = b - a;
+                    op = 0;
+                }
                 render();
             }
         });
@@ -134,11 +203,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void render() {
-        if (a == 0) {
-            resultView.setText("пусто");
-        } else {
-            resultView.setText(Long.toString(a));
-        }
+
+        resultView.setText(Long.toString(a));
+
     }
 
 }
